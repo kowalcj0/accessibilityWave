@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="run tests in parallel" parallel="false" verbose="1" configfailurepolicy="continue">
+    <listeners>
+        <!--
+        This TestNG listener takes care of setting up and tearing down the Local Selenium driver,
+        and it also changes test names in the final TestNG HTML report.
+        -->
+        <listener class-name="org.kowalcj0.accessibilityWave.LocalWebDriverListener" />
+    </listeners>
+    <test name="Tests in FF">
+        <parameter name="browserName" value="firefox" />
+        <!-- If you want to be more specific, replace this with a list of test classes you'd like to run -->
+        <classes>
+            <class name="org.kowalcj0.accessibilityWave.runners.RunCukesTestInFirefox" />
+        </classes>
+    </test>
+</suite>
